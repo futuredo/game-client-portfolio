@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://futuredo.github.io/game-client-portfolio/sitemap.xml
