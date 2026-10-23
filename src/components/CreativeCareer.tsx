@@ -1,10 +1,10 @@
-import { ArrowDownToLine, ArrowRight, ArrowUpRight, GitFork, Mail, Trophy } from 'lucide-react'
-import { aiWorkflow, creativeWorks, evidenceUrl, timeline } from '../data/content'
+import { ArrowRight, ArrowUpRight, GitFork, Mail, Trophy } from 'lucide-react'
+import { aiWorkflow, creativeWorks, timeline } from '../data/content'
 import { SectionHeading } from './SectionHeading'
 
-type CreativeCareerProps = { asset: (path: string) => string; resumeUrl: string }
+type CreativeCareerProps = { asset: (path: string) => string }
 
-export function CreativeCareer({ asset, resumeUrl }: CreativeCareerProps) {
+export function CreativeCareer({ asset }: CreativeCareerProps) {
   return (
     <>
       <section className="section section--creative" id="creative">
@@ -94,10 +94,7 @@ export function CreativeCareer({ asset, resumeUrl }: CreativeCareerProps) {
           <a href="https://www.xyxya.xyz/" target="_blank" rel="noreferrer">个人主页<ArrowUpRight size={16} /></a>
           <a href="https://futuredo.github.io/interview-app/" target="_blank" rel="noreferrer">Unity 面试宝典<ArrowUpRight size={16} /></a>
         </div>
-        <a className="button button--outline contact-download reveal" href={resumeUrl} download>
-          <ArrowDownToLine size={19} />下载简历存档
-        </a>
-        <p className="resume-note">简历保留原版，含开发中版本的数据。最新项目状态请查看<a href={evidenceUrl} target="_blank" rel="noreferrer">版本核对记录 ↗</a>。</p>
+
       </section>
     </>
   )

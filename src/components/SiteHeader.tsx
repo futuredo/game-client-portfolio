@@ -26,7 +26,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <a className="brand" href="#top" aria-label="返回顶部">
-        <strong>SONG ZIHAN</strong><span>/</span><small>GAME CLIENT</small>
+        <strong>FUTUREDO</strong><span>/</span><small>GAME CLIENT</small>
       </a>
       <button className="menu-toggle" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="切换导航">
         {open ? <X size={20} /> : <Menu size={20} />}

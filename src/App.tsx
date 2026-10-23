@@ -9,7 +9,6 @@ import { SiteHeader } from './components/SiteHeader'
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
 
 function App() {
-  const resumeUrl = asset('Song-Zihan-Game-Client-Resume-2027.pdf')
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll<HTMLElement>('.reveal'))
@@ -36,10 +35,10 @@ function App() {
         <EngineLabs asset={asset} />
         <ProjectJinn />
         <EngineResearch asset={asset} />
-        <CreativeCareer asset={asset} resumeUrl={resumeUrl} />
+        <CreativeCareer asset={asset} />
       </main>
       <footer className="site-footer">
-        <span>SONG ZIHAN · GAME CLIENT / GAMEPLAY · 2027 CAMPUS</span>
+        <span>FUTUREDO · GAME CLIENT / GAMEPLAY · 2027 CAMPUS</span>
         <a href="#top" aria-label="返回顶部">↑</a>
       </footer>
     </div>
