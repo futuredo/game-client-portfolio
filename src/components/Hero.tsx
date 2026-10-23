@@ -11,7 +11,7 @@ export function Hero({ asset }: HeroProps) {
         <p className="eyebrow">GAMEPLAY / SIMULATION / TOOLS</p>
         <h1 id="hero-title">让玩法可实现，<br />让系统可验证。</h1>
         <div className="hero-identity">
-          <img src={asset('assets/portrait.jpg')} alt="futuredo" width="48" height="60" />
+          <img src="https://avatars.githubusercontent.com/u/171798009?v=4" alt="futuredo 的 GitHub 头像" width="48" height="48" />
           <div><strong>futuredo</strong><span>Unity 客户端 / Gameplay 工程师</span></div>
         </div>
         <p>围绕确定性仿真、网络同步和内容工具，记录从实现到调试、测量与交付的过程。</p>
