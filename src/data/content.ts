@@ -1,7 +1,7 @@
 export const navItems = [
-  { label: '项目', href: '#project-jinn' },
-  { label: '引擎', href: '#engine' },
-  { label: '实验', href: '#labs' },
+  { label: '重点作品', href: '#labs' },
+  { label: '项目经历', href: '#project-jinn' },
+  { label: '架构研究', href: '#engine' },
   { label: '经历', href: '#experience' },
   { label: '联系', href: '#contact' },
 ]
@@ -39,41 +39,70 @@ export const jinnTools = [
   ['RecastNav', '导航网格、地图分区、活动范围、动态避障与复杂地形移动。'],
   ['Timeline / BattleData', '位移、碰撞、伤害、动画、音频与 VFX 的可视化生产管线。'],
   ['ECS Buff', '属性、控制状态、触发器和战斗效果的组合式复用。'],
-  ['运行时热调 3x', '把改表、导表、部署、重启、重新进局压缩为真实多人对局内闭环。'],
+  ['运行时调试', '围绕多人对局中的配置、状态与结果反馈，改进玩法调试流程。'],
 ]
 
 export const engineCapabilities = [
-  ['World + Snapshot', 'generation handle、场景 schema、增量快照与确定性状态哈希。'],
-  ['Scheduler DAG', '系统依赖分层、同层并行、FixedStep 与时间域管理。'],
-  ['Capability / Policy / Trace', '提案、Dry Run、策略、提交、事件与证据追踪。'],
-  ['Input Tape / Lockstep', '输入磁带、回放、检查点与 PersistedStateHash 一致性。'],
-  ['13 MCP Tools', '通过受控接口开放世界、实体、AI、渲染、调试与回滚能力。'],
+  ['世界权威', '讨论如何让模型提出意图，由规则系统校验并执行状态变更。'],
+  ['能力与副作用', '为工具调用定义输入、前置条件、权限和可恢复的操作边界。'],
+  ['观察与验证', '把运行轨迹、故障恢复和评测纳入设计，区分工具成功与结果正确。'],
 ]
+
+export const evidenceUrl = 'https://github.com/futuredo/game-client-portfolio/blob/main/docs/PROJECT_EVIDENCE.md'
+
+const swarm = 'https://github.com/futuredo/swarm-ecs-sandbox'
+const swarmSource = `${swarm}/blob/829693ba7fa13e6b33963e7697f80402d9e2966e`
+const graph = 'https://github.com/futuredo/graphview-skill-system'
+const graphSource = `${graph}/blob/d628d22ee27c762a79b1d8f7aac9c479124a245e`
+const kcp = 'https://github.com/futuredo/kcp-sync-core'
+const streaming = 'https://github.com/futuredo/streaming-world-manager'
 
 export const labs = [
   {
-    index: '01', title: 'Swarm ECS Sandbox', subtitle: '10,000 Agent 确定性仿真',
-    image: 'assets/swarm-ecs.png', url: 'https://github.com/futuredo/swarm-ecs-sandbox',
-    description: 'Q16.16 定点数、固定容量 SoA ECS、Uniform Grid/KD-Tree、预算化 A*、ORCA/RVO、SAT/CCD、Snapshot/Rollback/Replay 与权威 UDP 会话。',
-    proof: 'EditMode 200/200 · macOS Player · 0 alloc 热路径证据',
+    id: 'swarm', index: '01', title: 'Swarm ECS Sandbox', subtitle: '确定性仿真 · 空间算法 · 回放与网络',
+    image: 'assets/swarm-ecs.png', url: swarm, status: 'macOS 演示已发布 · v0.4.0',
+    description: '把一万 Agent 的逻辑放入纯 C# 定点数据层，Unity 负责表现。用共享寻路、空间查询、避障、碰撞和状态哈希，观察复杂仿真如何保持可解释。',
+    proof: '10,000 Agent 逻辑基准；独立的 512 Agent / 3 进程 UDP 记录。',
+    scope: '逻辑基准使用 Null Device；UDP 记录为本机回环、210 ticks。跨机器联网、快照修复与跨平台性能仍需验证。',
+    links: [
+      { label: '下载 macOS 演示', url: `${swarm}/releases/tag/v0.4.0` },
+      { label: '逻辑基准', url: `${swarmSource}/BenchmarkResults/latest.md` },
+      { label: '网络实验记录', url: `${swarmSource}/NetworkResults/latest/latest.md` },
+    ],
   },
   {
-    index: '02', title: 'KCP Sync Core', subtitle: '固定 Tick、预测 / 校正 / 重演',
-    image: 'assets/kcp-sync.png', url: 'https://github.com/futuredo/kcp-sync-core',
-    description: 'Q16.16 权威模拟、客户端预测与校正重演、远端快照插值、jitter-buffer time dilation，以及 IPv4 UDP + kcp2k 双通道。',
-    proof: '47 tests · 协议 golden bytes · 弱网与旧会话回放',
+    id: 'graphview', index: '02', title: 'GraphView Skill System', subtitle: '技能图编辑 · 编译器 · 运行时调试',
+    image: 'assets/graphview-skill.jpg', url: graph, status: '源码与验收记录公开',
+    description: '从可视化技能图编译到 GSKL 二进制，再由多实体 VM 执行。支持编译诊断、事务命令缓冲、实体轨迹、断点和单 Tick 调试。',
+    proof: '61/61 EditMode 历史验收快照 · 2026-07-17。',
+    scope: '1,000 实体 p95 345.4 μs、0 B 属于特定 Editor 回归测量段；不代表整个帧或目标设备 Player 性能。',
+    links: [
+      { label: '运行与编图指南', url: `${graphSource}/README.md#quick-start` },
+      { label: '测试记录', url: `${graphSource}/Documentation/TEST_RESULTS.md` },
+      { label: '性能口径', url: `${graphSource}/Documentation/BENCHMARKS.md` },
+    ],
   },
   {
-    index: '03', title: 'GraphView Skill System', subtitle: '技能图编译器与多实体 VM',
-    image: 'assets/graphview-skill.jpg', url: 'https://github.com/futuredo/graphview-skill-system',
-    description: 'UI Toolkit / GraphView 技能图确定性编译为 GSKL v1 二进制，预分配多实体 VM、事务命令缓冲、trace、断点与单 Tick 调试。',
-    proof: '61/61 · 1,000 实体 p95 345.4 μs · 0 B',
+    id: 'kcp', index: '03', title: 'KCP Sync Core', subtitle: '客户端预测 · 快照插值 · 服务器校正',
+    image: 'assets/kcp-sync.png', url: kcp, status: '默认分支与 UDP 开发分支分开展示',
+    description: '固定 Tick 与 Q16.16 模拟，可靠输入与不可靠快照分流。默认分支提供 loopback 实验；公开开发分支增加真实 IPv4 UDP 与独立客户端／服务端。',
+    proof: 'main：12 项 EditMode 基线；UDP 开发分支：47 项用例。',
+    scope: '47 项对应 agent/udp-dedicated-server（0260383），尚未合入 main。本轮核对源码与历史报告，没有重跑 Unity 测试。',
+    links: [
+      { label: '默认分支说明', url: `${kcp}/blob/ba3d1b8b0e2957f51d476ccf5a56286b207191ff/README.md` },
+      { label: 'UDP 分支与 47 项说明', url: `${kcp}/blob/0260383340b811d1a916f0808cdc208947b401b0/README.md` },
+    ],
   },
   {
-    index: '04', title: 'Streaming World Manager', subtitle: '4,096 Chunk 大世界流式加载',
-    image: 'assets/streaming-world.png', url: 'https://github.com/futuredo/streaming-world-manager',
-    description: '四叉树查询、分级驻留、速度预测、epoch 失效、I/O 背压、资源租约、对象池、时间分片与 HLOD Dither Cross-Fade。',
-    proof: '63 EditMode + 4 PlayMode · YooAsset 生命周期',
+    id: 'streaming', index: '04', title: 'Streaming World Manager', subtitle: '分级驻留 · 资源租约 · 时间分片',
+    image: 'assets/streaming-world.png', url: streaming, status: '以公开 main 的能力为准',
+    description: '以四叉树管理 4,096 个逻辑 Chunk，串联预测预取、过期请求丢弃、共享资源租约、对象池与 HLOD 过渡，观察加载和回收的生命周期。',
+    proof: '公开版本基线：30 EditMode + 3 PlayMode。',
+    scope: '3 ms 调度预算和稳态 0 B 是有条件的目标，待 Player 实测。63 + 4 的本地报告对应未提交版本，不计入公开主分支。',
+    links: [
+      { label: '公开版本说明', url: `${streaming}/blob/9120d1f37f9cc44ce2ac3205f27c09ff857153cd/README.md` },
+      { label: '性能验证规范', url: `${streaming}/blob/9120d1f37f9cc44ce2ac3205f27c09ff857153cd/PERFORMANCE.md` },
+    ],
   },
 ]
 

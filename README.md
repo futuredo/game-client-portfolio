@@ -1,30 +1,22 @@
 # 宋子涵 · Game Client Portfolio
 
-面向 2027 校招的游戏客户端 / Gameplay 工程作品集网站。
+Unity 客户端 / Gameplay 工程作品集，优先展示 Swarm ECS、GraphView Skill System，以及 KCP、Streaming 的版本和验证范围。
 
-在线访问：[futuredo.github.io/game-client-portfolio](https://futuredo.github.io/game-client-portfolio/)
+[在线访问](https://futuredo.github.io/game-client-portfolio/) · [版本与验证依据](docs/PROJECT_EVIDENCE.md)
 
-## 内容
+内容包括公开工程作品、个人项目经历、AI 原生引擎设计研究、游戏创作和教育经历。每项技术数字对应具体版本与测量范围；公开默认分支、开发分支和本地历史报告分别说明。原版简历保留为存档，项目状态以核对记录为准。
 
-- Project Jinn：多人 PVE 商业项目的端服全链路、拍照与灵异异常、怪物 AI、战斗编辑器与版本交付。
-- AINGE Studio：AI 原生 C++23 游戏引擎、Capability / Policy / Trace 与确定性运行时。
-- Engineering Lab：确定性 ECS、KCP 同步、GraphView 技能编译器和大世界流式加载。
-- 游戏创作、VR、AI 辅助游戏开发流程、工作经历、教育与荣誉。
+## 本地开发
 
-## 本地运行
+使用 Node.js 22 和 npm：
 
 ```bash
-npm install
+npm ci
 npm run dev
-```
-
-## 构建
-
-```bash
 npm run check
 npm run build
 ```
 
-网站通过 GitHub Actions 自动部署到 GitHub Pages。
+推送 main 后通过 GitHub Actions 部署至 GitHub Pages。项目内容在 `src/data/content.ts` 维护，引用记录在 `docs/PROJECT_EVIDENCE.md` 维护。
 
-> Project Jinn 公开页面仅展示个人职责、架构和结果，不包含公司源码、内部路径与项目资产。
+Project Jinn 部分为个人职责摘要，不包含公司源码、内部路径和项目资产。

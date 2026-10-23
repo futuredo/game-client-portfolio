@@ -14,9 +14,9 @@ export function ProjectJinn() {
     <section className="section section--jinn" id="project-jinn">
       <SectionHeading
         index="02"
-        label="CORE COMMERCIAL PROJECT"
-        title="Project Jinn — 商业项目全链路"
-        intro="多人 PVE 合作生存搜打撤手游｜Unity 6 + ET/C#｜2026.04 — 至今。工作重点不是单点功能，而是把复杂玩法做成可配置、可同步、可观测、可测试、可持续演进的系统。"
+        label="PROFESSIONAL EXPERIENCE"
+        title="Project Jinn — 多人玩法与工程实践"
+        intro="Unity 6 + ET/C#｜2026.04 — 至今。个人工作经历摘要：参与客户端、权威战斗服与配置协议之间的玩法实现、调试和版本交付。"
       />
 
       <div className="jinn-layout">
@@ -75,15 +75,12 @@ export function ProjectJinn() {
         </div>
       </div>
 
-      <div className="delivery-proof reveal">
+      <div className="delivery-proof delivery-proof--summary reveal">
         <div className="delivery-copy">
-          <span>真实交付证明</span>
-          <strong>跨客户端、战斗服、配置协议三仓持续交付</strong>
-          <p>统计来自本机 Git author=宋子涵，已排除 merge commit；用于说明持续交付范围，不代替运行时验收。</p>
+          <span>个人参与范围</span>
+          <strong>沿客户端、战斗服、配置协议追踪完整玩法流程</strong>
+          <p>关注输入反馈、权威校验、结果同步和故障定位。此处为个人职责说明；可公开复现的源码与实验记录见上方工程作品。</p>
         </div>
-        {[['302', 'Client'], ['145', 'Server'], ['58', 'Config / Proto']].map(([number, label]) => (
-          <div className="delivery-number" key={label}><strong>{number}</strong><span>{label}</span><small>非合并提交</small></div>
-        ))}
       </div>
 
       <p className="confidentiality-note reveal"><ShieldCheck size={16} />公开版仅展示职责、架构与结果，不包含公司源码、内部路径与项目资产。</p>

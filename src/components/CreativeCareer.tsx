@@ -1,5 +1,5 @@
 import { ArrowDownToLine, ArrowRight, ArrowUpRight, GitFork, Mail, Trophy } from 'lucide-react'
-import { aiWorkflow, creativeWorks, timeline } from '../data/content'
+import { aiWorkflow, creativeWorks, evidenceUrl, timeline } from '../data/content'
 import { SectionHeading } from './SectionHeading'
 
 type CreativeCareerProps = { asset: (path: string) => string; resumeUrl: string }
@@ -9,18 +9,18 @@ export function CreativeCareer({ asset, resumeUrl }: CreativeCareerProps) {
     <>
       <section className="section section--creative" id="creative">
         <SectionHeading
-          index="05"
+          index="04"
           label="CREATIVE WORK"
           title="游戏创作与交互作品"
-          intro="从 GameJam 的快速完整交付，到 VR 交互、规则解谜和梦核叙事。这里关注的不只是点子，而是把美术、交互、工具和运行时做成一套能上线的作品。"
+          intro="GameJam、VR 交互与规则解谜的创作记录，关注玩法、美术与交互如何组成完整体验。"
         />
         <div className="creative-layout">
           <div className="creative-list reveal">
             <article className="creative-lead">
               <span>FEATURED WORK</span>
               <h3>Glitch</h3>
-              <p>2D Meta 解谜｜TapTap 聚光灯 GameJam 获奖｜21 天上线</p>
-              <div className="creative-proof"><strong>9.4</strong><span>评分</span><strong>2w+</strong><span>浏览</span><strong>2k+</strong><span>游玩</span></div>
+              <p>2D Meta 解谜 · GameJam 团队作品</p>
+              <div className="project-links"><a href="https://futuredo.github.io/pixelhtml/" target="_blank" rel="noreferrer">查看创作记录<ArrowUpRight size={14} /></a></div>
             </article>
             {creativeWorks.map(([title, detail]) => (
               <article className="creative-row" key={title}>
@@ -43,7 +43,7 @@ export function CreativeCareer({ asset, resumeUrl }: CreativeCareerProps) {
 
       <section className="section section--workflow" id="workflow">
         <SectionHeading
-          index="06"
+          index="05"
           label="AI WORKFLOW"
           title="AI 辅助游戏开发工作流"
           intro="AI 不替代工程判断；它放大可追踪、可回滚、可验证的生产流程。"
@@ -57,14 +57,14 @@ export function CreativeCareer({ asset, resumeUrl }: CreativeCareerProps) {
           ))}
         </div>
         <div className="workflow-proof reveal">
-          <span>已跑通</span>
-          <p>Project Jinn 战斗服数据采集与 Gameplay 自动化入口；AINGE TaskToken / Checkpoint / Trace；Unity 项目从规格、资源接线到构建、测试与截图的自动化闭环。</p>
+          <span>实践原则</span>
+          <p>用版本、运行记录和实际体验评价结果。Swarm 的发布附件、GraphView 的验收快照，以及本页的版本核对记录，分别保留各自的验证范围。</p>
         </div>
       </section>
 
       <section className="section section--experience" id="experience">
         <SectionHeading
-          index="07"
+          index="06"
           label="EXPERIENCE & EDUCATION"
           title="经历与教育"
         />
@@ -95,8 +95,9 @@ export function CreativeCareer({ asset, resumeUrl }: CreativeCareerProps) {
           <a href="https://futuredo.github.io/interview-app/" target="_blank" rel="noreferrer">Unity 面试宝典<ArrowUpRight size={16} /></a>
         </div>
         <a className="button button--outline contact-download reveal" href={resumeUrl} download>
-          <ArrowDownToLine size={19} />下载完整简历
+          <ArrowDownToLine size={19} />下载简历存档
         </a>
+        <p className="resume-note">简历保留原版，含开发中版本的数据。最新项目状态请查看<a href={evidenceUrl} target="_blank" rel="noreferrer">版本核对记录 ↗</a>。</p>
       </section>
     </>
   )

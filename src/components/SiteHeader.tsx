@@ -1,12 +1,10 @@
-import { Download, Menu, X } from 'lucide-react'
+import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { navItems } from '../data/content'
+import { evidenceUrl, navItems } from '../data/content'
 
-type HeaderProps = { resumeUrl: string }
-
-export function SiteHeader({ resumeUrl }: HeaderProps) {
+export function SiteHeader() {
   const [open, setOpen] = useState(false)
-  const [active, setActive] = useState('project-jinn')
+  const [active, setActive] = useState('labs')
 
   useEffect(() => {
     const sections = navItems
@@ -44,8 +42,8 @@ export function SiteHeader({ resumeUrl }: HeaderProps) {
             {item.label}
           </a>
         ))}
-        <a className="resume-link" href={resumeUrl} download>
-          <Download size={15} aria-hidden="true" />下载简历
+        <a className="resume-link" href={evidenceUrl} target="_blank" rel="noreferrer">
+          版本依据<ArrowUpRight size={15} aria-hidden="true" />
         </a>
       </nav>
     </header>

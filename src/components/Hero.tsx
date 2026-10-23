@@ -1,54 +1,34 @@
 import { ArrowDownRight, ArrowUpRight, GitFork } from 'lucide-react'
+import { evidenceUrl } from '../data/content'
 
 type HeroProps = { asset: (path: string) => string }
-
-const proof = [
-  ['505', '非合并提交'],
-  ['3', '仓端服交付'],
-  ['GPA Top 1', '4.35 / 5.0'],
-]
-
-const tech = ['Unity 6', 'ET/C#', 'Repgen', 'HTN', 'RecastNav', 'ECS Buff', 'C++23', 'Metal']
 
 export function Hero({ asset }: HeroProps) {
   return (
     <section className="hero" id="about" aria-labelledby="hero-title">
       <div className="hero-grid" aria-hidden="true" />
-      <div className="hero-trace" aria-hidden="true"><i /><i /><i /></div>
       <div className="hero-copy reveal">
-        <h1 id="hero-title">把复杂玩法，<br />做成可配置、可同步、<br />可验证的系统。</h1>
+        <p className="eyebrow">GAMEPLAY / SIMULATION / TOOLS</p>
+        <h1 id="hero-title">让玩法可实现，<br />让系统可验证。</h1>
         <div className="hero-identity">
-          <strong>宋子涵</strong>
-          <span>Unity 游戏客户端 / Gameplay / 客户端工具与引擎</span>
+          <img src={asset('assets/portrait.jpg')} alt="宋子涵" width="48" height="60" />
+          <div><strong>宋子涵 · futuredo</strong><span>Unity 客户端 / Gameplay 工程师</span></div>
         </div>
-        <p>从商业多人 PVE 的端服全链路，到 C++23 原生引擎与确定性网络实验。</p>
+        <p>围绕确定性仿真、网络同步和内容工具，记录从实现到调试、测量与交付的过程。</p>
         <div className="hero-actions">
-          <a className="button button--primary" href="#project-jinn">查看核心项目 <ArrowDownRight size={18} /></a>
-          <a className="button button--ghost" href="https://github.com/futuredo" target="_blank" rel="noreferrer">
-            <GitFork size={18} />GitHub <ArrowUpRight size={15} />
-          </a>
+          <a className="button button--primary" href="#labs">查看重点作品 <ArrowDownRight size={18} /></a>
+          <a className="button button--ghost" href="https://github.com/futuredo" target="_blank" rel="noreferrer"><GitFork size={18} />GitHub <ArrowUpRight size={15} /></a>
         </div>
       </div>
-      <div className="hero-portrait reveal reveal--delay">
-        <div className="portrait-calibration" aria-hidden="true"><span>20</span><span>30</span><span>20</span></div>
-        <img src={asset('assets/portrait.jpg')} alt="宋子涵证件照" />
-        <span className="portrait-coordinate" aria-hidden="true">PX.2303302019</span>
-      </div>
-      <div className="proof-rail reveal">
-        {proof.map(([value, label]) => (
-          <div key={value} className="proof-item"><strong>{value}</strong><span>{label}</span></div>
-        ))}
-      </div>
-      <a className="project-preview reveal" href="#project-jinn">
-        <div>
-          <span>核心商业项目</span>
-          <strong>Project Jinn</strong>
-          <p>多人 PVE 项目中的客户端核心系统与战斗玩法全链路交付。</p>
-        </div>
-        <ArrowDownRight size={28} aria-hidden="true" />
+      <a className="hero-showcase reveal reveal--delay" href="#swarm" aria-label="查看 Swarm ECS 项目与实验记录">
+        <div className="showcase-label"><span>FEATURED / 01</span><span>Unity · C#</span></div>
+        <img src={asset('assets/swarm-ecs.png')} alt="Swarm ECS 运行画面与仿真诊断面板" fetchPriority="high" />
+        <div className="showcase-caption"><div><strong>Swarm ECS Sandbox</strong><span>确定性仿真与可复现的网络实验</span></div><ArrowDownRight size={24} /></div>
       </a>
-      <div className="tech-rail" aria-label="核心技术栈">
-        {tech.map((item) => <span key={item}>{item}</span>)}
+      <div className="proof-rail reveal" aria-label="快速查看作品与证据">
+        <a className="proof-item" href="https://github.com/futuredo/swarm-ecs-sandbox/releases/tag/v0.4.0" target="_blank" rel="noreferrer"><strong>Swarm v0.4.0</strong><span>macOS 演示与发布附件 ↗</span></a>
+        <a className="proof-item" href="#graphview"><strong>GraphView</strong><span>技能编译、VM 与调试工具 ↓</span></a>
+        <a className="proof-item" href={evidenceUrl} target="_blank" rel="noreferrer"><strong>版本与依据</strong><span>2026-10-23 核对记录 ↗</span></a>
       </div>
     </section>
   )

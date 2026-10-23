@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { CreativeCareer } from './components/CreativeCareer'
 import { EngineLabs } from './components/EngineLabs'
+import { EngineResearch } from './components/EngineResearch'
 import { Hero } from './components/Hero'
 import { ProjectJinn } from './components/ProjectJinn'
 import { SiteHeader } from './components/SiteHeader'
@@ -29,11 +30,12 @@ function App() {
 
   return (
     <div id="top" className="site-shell">
-      <SiteHeader resumeUrl={resumeUrl} />
+      <SiteHeader />
       <main id="main">
         <Hero asset={asset} />
-        <ProjectJinn />
         <EngineLabs asset={asset} />
+        <ProjectJinn />
+        <EngineResearch asset={asset} />
         <CreativeCareer asset={asset} resumeUrl={resumeUrl} />
       </main>
       <footer className="site-footer">
